@@ -16,11 +16,11 @@ const projectsData = [
     demo: 'https://pet-adoption-management-system.vercel.app/'
   },
   {
-    title: 'Admin Control Center & Workflow Dashboard',
-    desc: 'Designed and built the administrative panel with approval workflows, adoption request analytics, user management, and pet listing controls for shelter admins.',
-    tags: ['React', 'Hibernate ORM', 'MySQL', 'Express.js', 'State Management'],
-    github: 'https://github.com/Satyam123Patel',
-    demo: 'https://pet-adoption-management-system.vercel.app/'
+    title: 'Pneumonia Detection from Chest X-Rays',
+    desc: 'Developed a deep learning Flask web application utilizing Convolutional Neural Networks (CNNs) to analyze chest X-ray images for automated pneumonia detection. Features user dashboards, prediction histories, and diagnostic reports.',
+    tags: ['Python', 'TensorFlow', 'Flask', 'OpenCV', 'CNN', 'SQLite'],
+    github: 'https://github.com/Satyam123Patel/Pneumonet-V2',
+    demo: 'https://pneumonet-v2-k9c6.onrender.com'
   }
 ]
 
