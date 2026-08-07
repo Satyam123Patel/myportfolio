@@ -12,7 +12,7 @@ const projectsData = [
     title: 'Secure JWT Auth & OTP Verification Engine',
     desc: 'Engineered a secure, stateless authorization and verification system. Includes token-based authentication (JWT) for secure user sessions, along with OTP-based email verification workflows.',
     tags: ['Spring Security', 'JWT', 'OTP Email', 'Java Mail API', 'Cryptography'],
-    github: 'https://github.com/Satyam123Patel',
+    github: 'https://github.com/Satyam123Patel/Pet-Adoption-Management-System',
     demo: 'https://pet-adoption-management-system.vercel.app/'
   },
   {
