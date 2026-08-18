@@ -5,13 +5,6 @@ const projectsData = [
     title: 'Pet Adoption Management System',
     desc: 'Developed a comprehensive full-stack web application connecting pet adopters with animal shelters. Implemented an interactive pet catalog, custom adoption applications, and responsive UI components.',
     tags: ['React', 'Java', 'Spring Boot', 'Hibernate', 'MySQL', 'REST APIs'],
-    github: 'https://github.com/Satyam123Patel',
-    demo: 'https://pet-adoption-management-system.vercel.app/'
-  },
-  {
-    title: 'Secure JWT Auth & OTP Verification Engine',
-    desc: 'Engineered a secure, stateless authorization and verification system. Includes token-based authentication (JWT) for secure user sessions, along with OTP-based email verification workflows.',
-    tags: ['Spring Security', 'JWT', 'OTP Email', 'Java Mail API', 'Cryptography'],
     github: 'https://github.com/Satyam123Patel/Pet-Adoption-Management-System',
     demo: 'https://pet-adoption-management-system.vercel.app/'
   },
@@ -21,6 +14,13 @@ const projectsData = [
     tags: ['Python', 'TensorFlow', 'Flask', 'OpenCV', 'CNN', 'SQLite'],
     github: 'https://github.com/Satyam123Patel/Pneumonet-V2',
     demo: 'https://pneumonet-v2-k9c6.onrender.com'
+  },
+  {
+    title: '1,000+ User Scalability & Load Testing Engine',
+    desc: 'Engineered a concurrent load testing system and benchmarked application performance under stress. Proven to handle up to 1,025 safe concurrent virtual user sessions at 1,020+ requests/sec with <1% error rate. Developed with the assistance of Antigravity AI.',
+    tags: ['Antigravity AI', 'Node.js', 'Load Testing', 'Express', 'React', 'Benchmarking'],
+    github: 'https://github.com/Satyam123Patel/Load_-_Scalability_Testing_System',
+    demo: 'https://load-scalability-testing-system.onrender.com'
   }
 ]
 
