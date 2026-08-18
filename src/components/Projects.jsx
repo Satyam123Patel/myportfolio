@@ -70,10 +70,12 @@ export default function Projects({ id, onSectionChange }) {
                     <svg className="icon"><use href="/icons.svg#github-icon" /></svg>
                     Code
                   </a>
-                  <a href={project.demo} target="_blank" rel="noopener noreferrer" className="project-link">
-                    <svg className="icon"><use href="/icons.svg#documentation-icon" /></svg>
-                    Live Demo
-                  </a>
+                  {project.demo && project.demo !== project.github && (
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="project-link">
+                      <svg className="icon"><use href="/icons.svg#documentation-icon" /></svg>
+                      Live Demo
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
