@@ -17,10 +17,10 @@ const projectsData = [
   },
   {
     title: '1,000+ User Scalability & Load Testing Engine',
-    desc: 'Engineered a concurrent load testing system and benchmarked application performance under stress. Proven to handle up to 1,025 safe concurrent virtual user sessions at 1,020+ requests/sec with <1% error rate. Developed with the assistance of Antigravity AI.',
-    tags: ['Antigravity AI', 'Node.js', 'Load Testing', 'Express', 'React', 'Benchmarking'],
+    desc: 'Engineered a local load testing suite and telemetry dashboard to benchmark web application performance under stress. Proven to handle up to 1,025 safe concurrent virtual user sessions at 1,020+ requests/sec. Developed with the assistance of Antigravity AI.',
+    tags: ['Antigravity AI', 'Node.js', 'Load Testing', 'Express', 'WebSockets', 'Benchmarking'],
     github: 'https://github.com/Satyam123Patel/Load_-_Scalability_Testing_System',
-    demo: 'https://load-scalability-testing-system.onrender.com'
+    demo: 'https://github.com/Satyam123Patel/Load_-_Scalability_Testing_System'
   }
 ]
 
