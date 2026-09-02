@@ -14,13 +14,6 @@ const projectsData = [
     tags: ['Python', 'TensorFlow', 'Flask', 'OpenCV', 'CNN', 'SQLite'],
     github: 'https://github.com/Satyam123Patel/Pneumonet-V2',
     demo: 'https://pneumonet-v2-k9c6.onrender.com'
-  },
-  {
-    title: '1,000+ User Scalability & Load Testing Engine',
-    desc: 'Engineered a local load testing suite and telemetry dashboard to benchmark web application performance under stress. Proven to handle up to 1,025 safe concurrent virtual user sessions at 1,020+ requests/sec. Developed with the assistance of Antigravity AI.',
-    tags: ['Antigravity AI', 'Node.js', 'Load Testing', 'Express', 'WebSockets', 'Benchmarking'],
-    github: 'https://github.com/Satyam123Patel/Load_-_Scalability_Testing_System',
-    demo: 'https://github.com/Satyam123Patel/Load_-_Scalability_Testing_System'
   }
 ]
 
