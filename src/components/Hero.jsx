@@ -41,8 +41,8 @@ export default function Hero({ id, onSectionChange }) {
             Hi, I'm <span className="highlight">Satyam Patel</span>
           </h1>
           <p className="hero-desc animate-fade-in">
-            A passionate Full Stack Developer specializing in building modern, interactive, 
-            and premium web applications. I design sleek user interfaces and engineer robust backend systems.
+            A passionate Java Full Stack Developer specializing in building modern, interactive, 
+            and premium web applications. I design sleek user interfaces and engineer robust backend systems with Spring Boot & Java.
           </p>
           <div className="hero-actions animate-fade-in-delayed">
             <button onClick={() => handleScrollTo('projects')} className="btn btn-primary">

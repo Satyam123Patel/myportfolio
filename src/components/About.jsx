@@ -31,15 +31,16 @@ export default function About({ id, onSectionChange }) {
         <div className="about-grid">
           <div className="about-text">
             <p>
-              I am a dedicated Full Stack Developer from Katni, Madhya Pradesh, with a strong foundation 
-              in backend engineering and software architecture. I completed my B.Tech in Computer Science 
-              and Engineering from GGITS Jabalpur in 2025, and went on to deepen my technical expertise 
-              by completing a Post Graduate Diploma in Advanced Computing (PG-DAC) from C-DAC Bengaluru in 2026.
+              I am a dedicated Java Full Stack Developer from Katni, Madhya Pradesh, with a strong foundation 
+              in backend engineering and software architecture. Currently pursuing my M.Tech in Computer Science 
+              and Engineering at Lakshmi Narain College of Technology (LNCT), Bhopal (Jul 2026 - Present). 
+              I completed my B.Tech in Computer Science and Engineering from GGITS Jabalpur in 2025, and previously 
+              completed a Post Graduate Diploma in Advanced Computing (PG-DAC) from C-DAC Bengaluru in 2026.
             </p>
             <p>
-              My expertise spans Java, Advanced Java, Spring Boot, Hibernate, React, and database systems 
+              My technical expertise spans Core & Advanced Java, Spring Boot, Spring Security, Hibernate, React, and database systems 
               like MySQL and MongoDB. I hold industry-recognized certifications in AWS Cloud Foundations, 
-              Machine Learning Foundations, and Cisco CCNA Networking, showing my commitment to continuous learning.
+              Machine Learning Foundations, and Cisco Networking Academy, demonstrating my commitment to continuous learning.
             </p>
           </div>
           <div className="about-stats">
@@ -56,8 +57,8 @@ export default function About({ id, onSectionChange }) {
               <span className="stat-label">Certs Earned</span>
             </div>
             <div className="stat-card">
-              <span className="stat-num">1</span>
-              <span className="stat-label">Full Stack System</span>
+              <span className="stat-num">5+</span>
+              <span className="stat-label">Core Technologies</span>
             </div>
           </div>
         </div>

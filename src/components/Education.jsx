@@ -2,6 +2,12 @@ import { useEffect, useRef } from 'react'
 
 const educationData = [
   {
+    duration: 'Jul 2026 - Present',
+    title: 'Master of Technology in Computer Science & Engineering (M.Tech)',
+    org: 'Lakshmi Narain College of Technology (LNCT), Bhopal',
+    desc: 'Pursuing advanced postgraduate studies in Computer Science and Engineering, focusing on advanced software systems, distributed computing, and enterprise application architecture.'
+  },
+  {
     duration: 'Aug 2025 - Feb 2026',
     title: 'Post Graduate Diploma in Advanced Computing (PG-DAC)',
     org: 'C-DAC, Bengaluru',

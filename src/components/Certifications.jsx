@@ -16,13 +16,13 @@ const certsData = [
   {
     title: 'CCNA: Introduction to Networks (v7)',
     issuer: 'Cisco Networking Academy',
-    date: '2025',
+    date: '2024',
     credentialUrl: 'https://drive.google.com/drive/folders/1iLOVWTD_kVZaVEIZClgavMc0Rxr-IxAn?usp=sharing'
   },
   {
     title: 'Cybersecurity Essentials',
     issuer: 'Cisco Networking Academy',
-    date: '2025',
+    date: '2024',
     credentialUrl: 'https://drive.google.com/drive/folders/1iLOVWTD_kVZaVEIZClgavMc0Rxr-IxAn?usp=sharing'
   },
   {

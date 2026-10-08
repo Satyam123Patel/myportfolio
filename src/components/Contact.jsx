@@ -1,13 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 
-// Get your free access key at https://web3forms.com/
-const WEB3FORMS_ACCESS_KEY = "97e322fc-7440-4868-89cc-2b441a1b2af0"
-
 export default function Contact({ id, onSectionChange }) {
   const sectionRef = useRef(null)
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
-  const [submitting, setSubmitting] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,48 +31,15 @@ export default function Contact({ id, onSectionChange }) {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     if (!formData.name || !formData.email || !formData.message) return
 
-    if (WEB3FORMS_ACCESS_KEY === "YOUR_ACCESS_KEY_HERE") {
-      alert("Please configure your Web3Forms Access Key at the top of Contact.jsx to enable sending messages!")
-      return
-    }
-
-    setSubmitting(true)
-
-    try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          subject: "New Contact Form Submission - Satyam Patel Portfolio"
-        })
-      })
-
-      const data = await response.json()
-
-      if (data.success) {
-        setSubmitted(true)
-        setFormData({ name: '', email: '', message: '' })
-        setTimeout(() => setSubmitted(false), 5000)
-      } else {
-        alert(data.message || 'Something went wrong, please try again.')
-      }
-    } catch (error) {
-      console.error(error)
-      alert('Failed to send message. Please check your network connection.')
-    } finally {
-      setSubmitting(false)
-    }
+    const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`)
+    const body = encodeURIComponent(`Hi Satyam,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)
+    window.location.href = `mailto:satyampatelkatni2003@gmail.com?subject=${subject}&body=${body}`
+    setSubmitted(true)
+    setTimeout(() => setSubmitted(false), 6000)
   }
 
   return (
@@ -86,8 +49,8 @@ export default function Contact({ id, onSectionChange }) {
         <div className="contact-wrapper">
           <div className="contact-info">
             <p className="contact-text">
-              I'm always open to discussing new projects, creative ideas, or opportunities 
-              to be part of your visions. Feel free to reach out via the contact form or social links.
+              I'm always open to discussing new projects, backend roles, creative ideas, or opportunities 
+              to contribute. Feel free to reach out directly via email, phone, or LinkedIn!
             </p>
             <div className="contact-details">
               <div className="contact-item">
@@ -121,11 +84,11 @@ export default function Contact({ id, onSectionChange }) {
               </div>
             </div>
             <div className="social-links">
-              <a href="https://github.com/Satyam123Patel" target="_blank" rel="noopener noreferrer" className="social-link" title="GitHub">
-                <svg className="icon"><use href="/icons.svg#github-icon" /></svg>
+              <a href="https://github.com/Satyam123Patel" target="_blank" rel="noopener noreferrer" className="social-link" title="GitHub" aria-label="GitHub Profile">
+                <svg className="icon" viewBox="0 0 19 19"><use href="/icons.svg#github-icon" /></svg>
               </a>
-              <a href="https://linkedin.com/in/satyam-patel-sp" target="_blank" rel="noopener noreferrer" className="social-link" title="LinkedIn">
-                <svg className="icon"><use href="/icons.svg#linkedin-icon" /></svg>
+              <a href="https://linkedin.com/in/satyam-patel-sp" target="_blank" rel="noopener noreferrer" className="social-link" title="LinkedIn" aria-label="LinkedIn Profile">
+                <svg className="icon" viewBox="0 0 24 24"><use href="/icons.svg#linkedin-icon" /></svg>
               </a>
             </div>
           </div>
@@ -134,13 +97,16 @@ export default function Contact({ id, onSectionChange }) {
               <div style={{
                 background: 'var(--accent-bg)',
                 border: '1px solid var(--accent)',
-                padding: '24px',
-                borderRadius: '12px',
+                padding: '28px',
+                borderRadius: '16px',
                 textAlign: 'center',
                 color: 'var(--text-h)'
               }}>
-                <h3 style={{ margin: '0 0 10px 0', color: 'var(--accent)' }}>Thank You!</h3>
-                <p style={{ margin: 0 }}>Your message has been sent successfully. I will get back to you shortly.</p>
+                <h3 style={{ margin: '0 0 10px 0', color: 'var(--accent)' }}>Opening Your Email Client!</h3>
+                <p style={{ margin: '0 0 14px 0' }}>If your mail client didn't open automatically, you can also write directly to:</p>
+                <a href="mailto:satyampatelkatni2003@gmail.com" className="btn btn-primary" style={{ display: 'inline-block' }}>
+                  satyampatelkatni2003@gmail.com
+                </a>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="contact-form">
@@ -183,8 +149,8 @@ export default function Contact({ id, onSectionChange }) {
                     required
                   />
                 </div>
-                <button type="submit" className="submit-btn" disabled={submitting}>
-                  {submitting ? 'Sending...' : 'Send Message'}
+                <button type="submit" className="submit-btn">
+                  Send Message via Email
                 </button>
               </form>
             )}
