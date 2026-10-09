@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xqpeqooa'
+
 export default function Contact({ id, onSectionChange }) {
   const sectionRef = useRef(null)
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
-  const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,15 +34,40 @@ export default function Contact({ id, onSectionChange }) {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (!formData.name || !formData.email || !formData.message) return
 
-    const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`)
-    const body = encodeURIComponent(`Hi Satyam,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)
-    window.location.href = `mailto:satyampatelkatni2003@gmail.com?subject=${subject}&body=${body}`
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 6000)
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `New Portfolio Message from ${formData.name}`
+        })
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', message: '' })
+        setTimeout(() => setSubmitStatus(null), 7000)
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch {
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -93,67 +121,81 @@ export default function Contact({ id, onSectionChange }) {
             </div>
           </div>
           <div>
-            {submitted ? (
-              <div style={{
-                background: 'var(--accent-bg)',
-                border: '1px solid var(--accent)',
-                padding: '28px',
-                borderRadius: '16px',
-                textAlign: 'center',
-                color: 'var(--text-h)'
-              }}>
-                <h3 style={{ margin: '0 0 10px 0', color: 'var(--accent)' }}>Opening Your Email Client!</h3>
-                <p style={{ margin: '0 0 14px 0' }}>If your mail client didn't open automatically, you can also write directly to:</p>
-                <a href="mailto:satyampatelkatni2003@gmail.com" className="btn btn-primary" style={{ display: 'inline-block' }}>
-                  satyampatelkatni2003@gmail.com
-                </a>
+            <form onSubmit={handleSubmit} className="contact-form">
+              {submitStatus === 'success' && (
+                <div style={{
+                  background: 'var(--accent-bg)',
+                  border: '1px solid var(--accent)',
+                  padding: '16px 20px',
+                  borderRadius: '12px',
+                  color: 'var(--text-h)',
+                  textAlign: 'center'
+                }}>
+                  <h4 style={{ margin: '0 0 6px 0', color: 'var(--accent)' }}>Thank You!</h4>
+                  <p style={{ margin: 0, fontSize: '14px' }}>Your message has been sent directly to my inbox. I will get back to you shortly.</p>
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div style={{
+                  background: 'rgba(239, 68, 68, 0.1)',
+                  border: '1px solid rgba(239, 68, 68, 0.4)',
+                  padding: '14px 20px',
+                  borderRadius: '12px',
+                  color: 'var(--text-h)',
+                  textAlign: 'center',
+                  fontSize: '14px'
+                }}>
+                  Unable to send message right now. Please email directly to{' '}
+                  <a href="mailto:satyampatelkatni2003@gmail.com" style={{ color: 'var(--accent)', fontWeight: 'bold' }}>
+                    satyampatelkatni2003@gmail.com
+                  </a>
+                </div>
+              )}
+
+              <div className="form-group">
+                <label htmlFor="name" className="form-label">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="form-input"
+                  placeholder="Your Name"
+                  required
+                />
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="contact-form">
-                <div className="form-group">
-                  <label htmlFor="name" className="form-label">Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="form-input"
-                    placeholder="Your Name"
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="email" className="form-label">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="form-input"
-                    placeholder="Your Email"
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="message" className="form-label">Message</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="form-input"
-                    style={{ minHeight: '120px', resize: 'vertical' }}
-                    placeholder="Your Message..."
-                    required
-                  />
-                </div>
-                <button type="submit" className="submit-btn">
-                  Send Message via Email
-                </button>
-              </form>
-            )}
+              <div className="form-group">
+                <label htmlFor="email" className="form-label">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="form-input"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="message" className="form-label">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="form-input"
+                  style={{ minHeight: '120px', resize: 'vertical' }}
+                  placeholder="Your Message..."
+                  required
+                />
+              </div>
+              <button type="submit" className="submit-btn" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending Message...' : 'Send Message'}
+              </button>
+            </form>
           </div>
         </div>
       </div>
