@@ -17,19 +17,19 @@ const certsData = [
     title: 'CCNA: Introduction to Networks (v7)',
     issuer: 'Cisco Networking Academy',
     date: '2024',
-    credentialUrl: 'https://drive.google.com/drive/folders/1iLOVWTD_kVZaVEIZClgavMc0Rxr-IxAn?usp=sharing'
+    credentialUrl: 'https://drive.google.com/file/d/1YDVe0YPO2sJrnhe7gT9SJryA3N6o3q5i/view?usp=sharing'
   },
   {
     title: 'Cybersecurity Essentials',
     issuer: 'Cisco Networking Academy',
     date: '2024',
-    credentialUrl: 'https://drive.google.com/drive/folders/1iLOVWTD_kVZaVEIZClgavMc0Rxr-IxAn?usp=sharing'
+    credentialUrl: 'https://drive.google.com/file/d/1421juxdpGCRYEJeXarOUsEJXkrU0gnyG/view?usp=sharing'
   },
   {
     title: 'Python Programming Training',
     issuer: 'Ideal Management Group, Jabalpur',
     date: '2024',
-    credentialUrl: 'https://drive.google.com/drive/folders/1iLOVWTD_kVZaVEIZClgavMc0Rxr-IxAn?usp=sharing'
+    credentialUrl: 'https://drive.google.com/file/d/1Iq8C_mocBNx9_2H1eGOCbzCGOp711Uiy/view?usp=sharing'
   }
 ]
 
