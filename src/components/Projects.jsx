@@ -13,7 +13,7 @@ const projectsData = [
     desc: 'Developed a deep learning Flask web application utilizing Convolutional Neural Networks (CNNs / EfficientNetB0) and TensorFlow to analyze chest X-ray images for automated pneumonia detection. Features real-time image classification, user dashboards, and diagnostic report generation.',
     tags: ['Python', 'TensorFlow', 'Flask', 'OpenCV', 'Deep Learning', 'PyTorch'],
     github: 'https://github.com/Satyam123Patel/Pneumonet-V2',
-    demo: null
+    demo: 'https://huggingface.co/spaces/Satyam-work/Pneumonet-V2'
   }
 ]
 
